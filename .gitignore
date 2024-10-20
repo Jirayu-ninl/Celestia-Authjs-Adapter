@@ -1,0 +1,85 @@
+# IceJi -- Universal Git Ignore
+
+# build
+*.7z
+
+# dependencies
+/node_modules
+/*/node_modules
+/*/*/node_modules
+
+/.pnp
+.pnp.js
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+yarn
+bun.lockb
+
+# testing
+/coverage
+/.env
+.env
+.env.local
+.env.test
+.env.development
+.env.dev
+.env.production
+.env.prod
+
+# next.js
+/.next/
+/out/
+/apps/*/.next/
+/apps/*/out/
+
+# nest.js
+/dist/
+/servers/dist/
+/servers/*/dist/
+
+# packages
+/packages/*/dist/
+
+# Generated
+/packages/gql/@schemas
+/packages/gql/schema/graphql.schema.ts
+/servers/gql/schema.gql
+**/public/fallback-*.js
+**/public/sw*
+**/public/workbox-*
+
+# misc
+.DS_Store
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Sentry
+.sentryclirc
+/*/*/.sentryclirc
+
+# Vercel
+.vercel
+
+## Panda
+styled-system
+styled-system-studio
+
+# Million Lint
+.million
+
+# NX Console
+.nx/cache
+.nx/workspace-data

@@ -1,0 +1,57 @@
+{
+  "name": "@celestia/authjs-adapter",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/Jirayu-ninl/celestia-authjs-adapter",
+  "bugs": {
+    "url": "https://github.com/Jirayu-ninl/celestia-authjs-adapter/issues"
+  },
+  "author": "Jirayu Ninlapun",
+  "license": "MIT",
+  "files": [
+    "*.js",
+    "*.d.ts*",
+    "src"
+  ],
+  "main": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "default": "./index.js"
+    }
+  },
+  "keywords": [
+    "celestia",
+    "authjs-adapter"
+  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rm ./prisma/dev.db* || echo 'File deleted' && rm -rf *.js *.d.ts*",
+    "init:default": "prisma migrate dev --name init --skip-seed",
+    "init:custom": "prisma migrate dev --name init-custom --schema ./prisma/custom.prisma",
+    "test:default": "pnpm init:default && vitest run -c ../utils/vitest.config.ts",
+    "test:custom": "pnpm init:custom && CUSTOM_MODEL=1 vitest run -c ../utils/vitest.config.ts",
+    "test:mongodb": "./test/mongodb.test.sh",
+    "test": "pnpm test:default && pnpm test:custom",
+    "test:og": "pnpm test:default && pnpm test:custom && pnpm test:mongodb",
+    "build": "prisma generate && tsc",
+    "dev": "prisma generate && tsc -w",
+    "studio": "prisma studio"
+  },
+  "devDependencies": {
+    "@prisma/client": "^5.21.1",
+    "@prisma/extension-accelerate": "^1.2.1",
+    "@types/node": "^22.7.7",
+    "ioredis": "^5.4.1",
+    "mongodb": "^6.9.0",
+    "prisma": "^5.21.1",
+    "vitest": "^2.1.3"
+  },
+  "dependencies": {
+    "@auth/core": "^0.37.2"
+  }
+}
